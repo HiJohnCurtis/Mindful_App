@@ -57,8 +57,9 @@ class SignUpN : AppCompatActivity() {
                     startActivity(intent)
 
 
-                } else {
-                    Toast.makeText(this@SignUpN, "Some error occurred", Toast.LENGTH_SHORT).show()
+                } else
+                {
+                    Toast.makeText(this@SignUpN, "User already exists, Please Login", Toast.LENGTH_SHORT).show()
 
 
                 }

@@ -55,8 +55,9 @@ class LoginN : AppCompatActivity() {
                     finish()
                     startActivity(intent)
 
-                } else {
-                    Toast.makeText(this@LoginN, "User does not exist", Toast.LENGTH_SHORT).show()
+                } else
+                {
+                    Toast.makeText(this@LoginN, "Email or password is incorrect", Toast.LENGTH_SHORT).show()
 
 
                 }
