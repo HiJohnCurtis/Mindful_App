@@ -81,12 +81,17 @@ class ChatActivity : AppCompatActivity() {
             val message = messageBox.text.toString()
             val messageObject = Message(message, senderUid)
 
-            mDbRef.child("chats").child(senderRoom!!).child("messages").push()
-                .setValue(messageObject).addOnSuccessListener {
-                    mDbRef.child("chats").child(receiverRoom!!).child("messages").push()
-                        .setValue(messageObject)
-                }
-            messageBox.setText("")
+            if (message.isNotEmpty()) {
+
+                mDbRef.child("chats").child(senderRoom!!).child("messages").push()
+                    .setValue(messageObject).addOnSuccessListener {
+                        mDbRef.child("chats").child(receiverRoom!!).child("messages").push()
+                            .setValue(messageObject)
+                    }
+                messageBox.setText("")
+            }
+
+            //possibly could use this logic to store thought counter total
         }
 
     }

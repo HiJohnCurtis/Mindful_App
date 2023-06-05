@@ -6,17 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityN">
 
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="50dp"
+        android:layout_height="37dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="1dp"
+        android:src="@drawable/backback" />
+
     <EditText
         android:id="@+id/search_users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/edt_background"
         android:hint="Search..."
         android:paddingLeft="13dp"
         android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        android:background="@drawable/edt_background"
-        />
+        android:paddingBottom="4dp" />
+
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -27,6 +39,7 @@
         tools:layout_editor_absoluteX="1dp"
         tools:listitem="@layout/user_layout"
         tools:layout_editor_absoluteY="1dp" />
+
 
     <!--initial layout was: androidx.constraintlayout.widget.ConstraintLayout-->
 
