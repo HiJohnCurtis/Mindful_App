@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityN">
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnBack"
         android:layout_width="75dp"
         android:layout_height="37dp"

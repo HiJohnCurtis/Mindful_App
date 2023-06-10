@@ -45,9 +45,10 @@ class MainActivityN : AppCompatActivity() {
 
         btnBack = findViewById(R.id.btnBack)
 
-        val display = supportActionBar
-        display?.title = "User List"
-        display?.setDisplayHomeAsUpEnabled(true)
+        btnBack.setOnClickListener{
+            val intent = Intent(this, LoginN::class.java)
+            startActivity(intent)
+        }
 
 
 
