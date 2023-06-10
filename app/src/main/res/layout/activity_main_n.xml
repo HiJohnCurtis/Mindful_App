@@ -6,20 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".MainActivityN">
 
-    <ImageView
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBack"
-        android:layout_width="50dp"
+        android:layout_width="75dp"
         android:layout_height="37dp"
+        android:layout_marginTop="4dp"
         android:paddingTop="4dp"
         android:paddingBottom="1dp"
-        android:src="@drawable/backback" />
+        android:text="Back"
+        android:icon="@drawable/backback" />
 
     <EditText
         android:id="@+id/search_users"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="7dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="20dp"

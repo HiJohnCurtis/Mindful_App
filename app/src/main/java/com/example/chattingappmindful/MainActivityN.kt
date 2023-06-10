@@ -3,6 +3,7 @@ package com.example.chattingappmindful
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Display
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -25,7 +26,7 @@ class MainActivityN : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
 
-    private lateinit var btnBack: ImageView
+    private lateinit var btnBack: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +45,9 @@ class MainActivityN : AppCompatActivity() {
 
         btnBack = findViewById(R.id.btnBack)
 
-        btnBack.setOnClickListener{
-
-        }
+        val display = supportActionBar
+        display?.title = "User List"
+        display?.setDisplayHomeAsUpEnabled(true)
 
 
 
@@ -93,6 +94,7 @@ class MainActivityN : AppCompatActivity() {
             startActivity(intent)
             return true
         }
+
         //return super.onOptionsItemSelected(item)
         return true
     }
