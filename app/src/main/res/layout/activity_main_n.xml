@@ -17,7 +17,7 @@
         android:icon="@drawable/backback" />
 
     <EditText
-        android:id="@+id/search_users"
+        android:id="@+id/searchUsers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
@@ -35,7 +35,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecyclerView"
-        android:layout_below="@id/search_users"
+        android:layout_below="@id/searchUsers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="1dp"

@@ -3,11 +3,14 @@ package com.example.chattingappmindful
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Display
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,10 +25,11 @@ class MainActivityN : AppCompatActivity() {
 
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userList: ArrayList<User>
+    private lateinit var filteredList: ArrayList<User>
     private lateinit var adapter: UserAdapter
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mDbRef: DatabaseReference
-
+    private lateinit var searchUsers:EditText
     private lateinit var btnBack: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,9 +40,12 @@ class MainActivityN : AppCompatActivity() {
         mDbRef = FirebaseDatabase.getInstance().getReference()
 
         userList = ArrayList()
-        adapter = UserAdapter(this, userList)
+        filteredList = ArrayList(userList)
+        adapter = UserAdapter(this, filteredList)
+        //adapter = UserAdapter(this, userList)
 
         userRecyclerView = findViewById(R.id.userRecyclerView)
+        searchUsers = findViewById(R.id.searchUsers)
 
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
@@ -49,6 +56,22 @@ class MainActivityN : AppCompatActivity() {
             val intent = Intent(this, LoginN::class.java)
             startActivity(intent)
         }
+
+        searchUsers.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // No action needed
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // No action needed
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                val searchText = s.toString().trim().lowercase()
+                filterUsers(searchText)
+            }
+        })
+
 
 
 
@@ -80,6 +103,23 @@ class MainActivityN : AppCompatActivity() {
     }
 
 
+    private fun filterUsers(searchText: String) {
+        filteredList.clear()
+
+        if (searchText.isNotEmpty()) {
+            for (user in userList) {
+                if (user.name?.lowercase()?.contains(searchText)== true) {
+                    filteredList.add(user)
+                }
+            }
+        } else {
+            filteredList.addAll(userList)
+        }
+
+        adapter.notifyDataSetChanged()
+    }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
@@ -99,5 +139,6 @@ class MainActivityN : AppCompatActivity() {
         //return super.onOptionsItemSelected(item)
         return true
     }
+
 
 }
