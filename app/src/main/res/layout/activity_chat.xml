@@ -6,11 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ChatActivity">
 
+    <Button
+        android:id="@+id/ChatbtnBack"
+        android:layout_width="75dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="2dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Back"
+        android:icon="@drawable/backback" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_above="@id/linearLayout"
+        android:layout_below="@id/ChatbtnBack"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

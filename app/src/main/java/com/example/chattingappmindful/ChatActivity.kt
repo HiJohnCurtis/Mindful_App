@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,6 +24,7 @@ class ChatActivity : AppCompatActivity() {
     private lateinit var messageAdapter: MessageAdapter
     private lateinit var messageList: ArrayList<Message>
     private lateinit var mDbRef: DatabaseReference
+    private lateinit var ChatbtnBack: Button
 
     var receiverRoom: String? = null
     var senderRoom: String? = null
@@ -50,6 +52,13 @@ class ChatActivity : AppCompatActivity() {
 
         chatRecyclerView.layoutManager = LinearLayoutManager(this)
         chatRecyclerView.adapter = messageAdapter
+
+        ChatbtnBack = findViewById(R.id.ChatbtnBack)
+
+        ChatbtnBack.setOnClickListener{
+            val intent = Intent(this, MainActivityN::class.java)
+            startActivity(intent)
+        }
 
         //logic for adding data to recyclerView
         mDbRef.child("chats").child(senderRoom!!).child("messages")
