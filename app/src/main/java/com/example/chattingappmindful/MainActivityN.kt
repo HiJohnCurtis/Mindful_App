@@ -47,6 +47,8 @@ class MainActivityN : AppCompatActivity() {
         userRecyclerView = findViewById(R.id.userRecyclerView)
         searchUsers = findViewById(R.id.searchUsers)
 
+        supportActionBar?.title = "Messages"
+
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
 
